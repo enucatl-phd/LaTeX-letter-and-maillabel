@@ -1,0 +1,19 @@
+\ProvidesFile{psi.lco}[2011/10/26 lco (Matteo Abis)]
+\LoadLetterOption{SN}
+\KOMAoptions{foldmarks=false,%
+	fromphone,%
+	fromemail,%
+	fromlogo,%
+	parskip=true}
+\setkomavar{fromname}{Matteo Abis}
+\setkomavar{fromaddress}{Paul Scherrer Institut\\
+	WBBA/213\\
+	CH-5232 Villigen}
+\setkomavar{fromphone}{+41 56 310 5130}
+\setkomavar{fromemail}{matteo.abis@psi.ch}
+\newcommand{\size}{1.5cm}
+\setkomavar{fromlogo}{%
+	\includegraphics[height=\size]{logo-tomcat}
+	\hspace{2.4cm}
+	\includegraphics[height=\size]{logo-psi}}
+\renewcommand*{\raggedsignature}{\raggedright}
