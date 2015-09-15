@@ -1,19 +1,139 @@
-\ProvidesFile{psi.lco}[2011/10/26 lco (Matteo Abis)]
+\ProvidesFile{psi.lco}[%
+  2005/12/17 letter class option]
+%\@setplength{toaddrhpos}{27mm}
+%\@setplength{toaddrwidth}{92mm}
+%\@setplength{sigindent}{0mm}
+%\setlength{\parindent}{0mm}
 \LoadLetterOption{SN}
-\KOMAoptions{foldmarks=false,%
-	fromphone,%
-	fromemail,%
-	fromlogo,%
-	parskip=true}
-\setkomavar{fromname}{Matteo Abis}
-\setkomavar{fromaddress}{Paul Scherrer Institut\\
-	WBBA/213\\
-	CH-5232 Villigen}
-\setkomavar{fromphone}{+41 56 310 5130}
-\setkomavar{fromemail}{matteo.abis@psi.ch}
-\newcommand{\size}{1.5cm}
-\setkomavar{fromlogo}{%
-	\includegraphics[height=\size]{logo-tomcat}
-	\hspace{2.4cm}
-	\includegraphics[height=\size]{logo-psi}}
+
 \renewcommand*{\raggedsignature}{\raggedright}
+
+\KOMAoptions{%
+        parskip=half,
+        fromrule=false,
+        numericaldate=false,
+        foldmarks=false,
+        backaddress=false,
+        refline=dateleft,
+}
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\renewcommand{\familydefault}{\sfdefault}
+\RequirePackage[scaled=0.9]{helvet}
+\RequirePackage{microtype}
+\RequirePackage{fixltx2e}
+\RequirePackage{eso-pic}
+\RequirePackage{graphicx}
+\RequirePackage{pgf}
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{lastpage}
+\RequirePackage[left=4.5cm,bottom=2.5cm]{geometry}
+
+
+% Define some new variable
+\newkomavar{postal}
+\newkomavar{globalphone}
+\newkomavar{department}
+\newkomavar{person}
+\newkomavar{room}
+
+% Set global variables
+\setkomavar{postal}{Paul Scherrer Institut\\5232 Villigen PSI\\Switzerland}
+\setkomavar{globalphone}{+41\,56\,310\,21\,11}
+\setkomavar{fromurl}{www.psi.ch}
+\setlength{\textwidth}{15cm}
+\setlength{\headsep}{5.5cm}
+\raggedright
+\date{\footnotesize Villigen PSI, \today}
+\setkomavar{subject}{Subject}
+
+% Start personal modification here
+\setkomavar{department}{SYN}
+\setkomavar{person}{David Haberthür}
+\setkomavar{fromemail}{david.haberthuer@psi.ch}
+\setkomavar{fromphone}{+41\,56\,310\,31\,80}
+\setkomavar{room}{WBBA/218}
+\setkomavar{fromname}{David Haberthür\newline TOMCAT Industry contact responsible}
+
+% Add Logo on every page
+\AddToShipoutPicture{%
+        \put(125,777){%
+                \includegraphics[width=3cm]{logo-psi}
+        }
+}
+% Add gray square on first page
+\AddToShipoutPicture*{%
+  \put(55,480){%
+    \begin{tikzpicture}
+        \fill [gray] (0,0) rectangle +(18mm, 18mm);
+    \end{tikzpicture}
+   }
+}
+
+% Define first page header
+\firsthead{%
+
+  \vspace*{6cm}%
+  \hspace*{-2cm}%
+  \parbox[b][\headheight][b]{5cm}{%
+    \raggedleft{%
+      \footnotesize{%
+        \usekomavar{postal}
+        
+        \vspace*{.2cm}
+        \usekomavar{globalphone}\\
+        \vspace*{-.2cm}
+        \usekomavar{fromurl}
+        }%
+      }%
+    }%
+  \hspace*{0.6cm}  
+  \parbox[b][\headheight][b]{5cm}{%
+    \raggedright{%
+      \footnotesize{%
+        \usekomavar{person}\\
+        \usekomavar{department}\\
+        \usekomavar{room}
+        
+        \vspace{.2cm}
+        direct \usekomavar{fromphone}\\
+        \vspace{-.2cm}
+        \usekomavar{fromemail}
+        }%
+      }%
+    }%    
+  }%
+  
+\nexthead{\normalfont%
+
+  \vspace*{-3.5cm}%
+  \hspace*{-5.7cm}%
+  \parbox[t][\headheight][t]{5cm}{%
+    \raggedleft{%
+      \footnotesize{%
+        \usekomavar{postal}
+        
+        \vspace*{.2cm}
+        \usekomavar{globalphone}\\
+        \vspace*{-.2cm}
+        \usekomavar{fromurl}
+        }%
+      }%
+    }%
+  \parbox[t][\headheight][t]{8cm}{%
+    \hspace*{0.6cm}
+    \raggedright{%
+      \footnotesize{%
+        Villigen PSI, \today\\
+        \vspace*{-.2cm}
+        \hspace*{0.6cm}
+        page \thepage/\pageref{LastPage}
+        }%
+      }%
+    }%    
+  }%
+% Clear footer on all pages
+\firstfoot{}
+\nextfoot{}
