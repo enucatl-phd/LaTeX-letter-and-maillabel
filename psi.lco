@@ -1,20 +1,13 @@
-\ProvidesFile{psi.lco}[%
-  2005/12/17 letter class option]
-%\@setplength{toaddrhpos}{27mm}
-%\@setplength{toaddrwidth}{92mm}
-%\@setplength{sigindent}{0mm}
-%\setlength{\parindent}{0mm}
+\ProvidesFile{psi.lco}[2015/09/19 PSI letter template (David Haberthür)]
 \LoadLetterOption{SN}
 
-\renewcommand*{\raggedsignature}{\raggedright}
-
 \KOMAoptions{%
-        parskip=half,
-        fromrule=false,
-        numericaldate=false,
-        foldmarks=false,
-        backaddress=false,
-        refline=dateleft,
+    parskip=half,
+    fromrule=false,
+    numericaldate=false,
+    foldmarks=false,
+    backaddress=false,
+    refline=dateleft,
 }
 
 \RequirePackage[utf8]{inputenc}
@@ -29,8 +22,7 @@
 \RequirePackage{tikz}
 \RequirePackage{xcolor}
 \RequirePackage{lastpage}
-\RequirePackage[left=4.5cm,bottom=2.5cm]{geometry}
-
+\RequirePackage[left=4cm, bottom=7cm]{geometry}
 
 % Define some new variable
 \newkomavar{postal}
@@ -45,95 +37,92 @@
 \setkomavar{fromurl}{www.psi.ch}
 \setlength{\textwidth}{15cm}
 \setlength{\headsep}{5.5cm}
-\raggedright
 \date{\footnotesize Villigen PSI, \today}
-\setkomavar{subject}{Subject}
+\setkomavar{subject}{\rmfamily{Subject heading}}
 
-% Start personal modification here
-\setkomavar{department}{SYN}
-\setkomavar{person}{David Haberthür}
-\setkomavar{fromemail}{david.haberthuer@psi.ch}
-\setkomavar{fromphone}{+41\,56\,310\,31\,80}
-\setkomavar{room}{WBBA/218}
-\setkomavar{fromname}{David Haberthür\newline TOMCAT Industry contact responsible}
+% Page & text setup
+\renewcommand*{\raggedsignature}{\raggedright}
+\raggedright
+\pagestyle{headings}
 
 % Add Logo on every page
 \AddToShipoutPicture{%
-        \put(125,777){%
-                \includegraphics[width=3cm]{logo-psi}
-        }
-}
+    \put(115,777){%
+        \includegraphics[width=3cm]{logo-psi}
+    }%
+}%
 % Add gray square on first page
 \AddToShipoutPicture*{%
-  \put(55,480){%
-    \begin{tikzpicture}
-        \fill [gray] (0,0) rectangle +(18mm, 18mm);
-    \end{tikzpicture}
-   }
-}
+    \put(45,480){%
+        \begin{tikzpicture}
+            \fill [gray] (0,0) rectangle +(18mm, 18mm);
+        \end{tikzpicture}
+    }%
+}%
 
 % Define first page header
-\firsthead{%
+\firsthead{\\%
+    \vspace*{5.75cm}%
+    \hspace*{-2.5cm}%
+    \parbox[b][\headheight][b]{5cm}{%
+        \raggedleft{%
+            \footnotesize{%
+                \usekomavar{postal}
 
-  \vspace*{6cm}%
-  \hspace*{-2cm}%
-  \parbox[b][\headheight][b]{5cm}{%
-    \raggedleft{%
-      \footnotesize{%
-        \usekomavar{postal}
-        
-        \vspace*{.2cm}
-        \usekomavar{globalphone}\\
-        \vspace*{-.2cm}
-        \usekomavar{fromurl}
+                \vspace*{.2cm}
+                \usekomavar{globalphone}\\
+                \vspace*{-.2cm}
+                \usekomavar{fromurl}
+            }%
         }%
-      }%
     }%
-  \hspace*{0.6cm}  
-  \parbox[b][\headheight][b]{5cm}{%
-    \raggedright{%
-      \footnotesize{%
-        \usekomavar{person}\\
-        \usekomavar{department}\\
-        \usekomavar{room}
-        
-        \vspace{.2cm}
-        direct \usekomavar{fromphone}\\
-        \vspace{-.2cm}
-        \usekomavar{fromemail}
-        }%
-      }%
-    }%    
-  }%
-  
-\nexthead{\normalfont%
-
-  \vspace*{-3.5cm}%
-  \hspace*{-5.7cm}%
-  \parbox[t][\headheight][t]{5cm}{%
-    \raggedleft{%
-      \footnotesize{%
-        \usekomavar{postal}
-        
-        \vspace*{.2cm}
-        \usekomavar{globalphone}\\
-        \vspace*{-.2cm}
-        \usekomavar{fromurl}
-        }%
-      }%
-    }%
-  \parbox[t][\headheight][t]{8cm}{%
     \hspace*{0.6cm}
-    \raggedright{%
-      \footnotesize{%
-        Villigen PSI, \today\\
-        \vspace*{-.2cm}
-        \hspace*{0.6cm}
-        page \thepage/\pageref{LastPage}
+    \parbox[b][\headheight][b]{5cm}{%
+        \raggedright{%
+            \footnotesize{%
+                \usekomavar{person}\\
+                \usekomavar{department}\\
+                \usekomavar{room}
+
+                \vspace{.2cm}
+                direct \usekomavar{fromphone}\\
+                \vspace{-.2cm}
+                \usekomavar{fromemail}
+            }%
         }%
-      }%
-    }%    
-  }%
-% Clear footer on all pages
+    }%
+}%
+
+\nexthead{%
+    \normalfont%
+    \vspace*{-3cm}%
+    \hspace*{-5.7cm}%
+    \parbox[t][\headheight][t]{5cm}{%
+        \raggedleft{%
+            \footnotesize{%
+                \usekomavar{postal}
+
+                \vspace*{.2cm}
+                \usekomavar{globalphone}\\
+                \vspace*{-.2cm}
+                \usekomavar{fromurl}
+            }%
+        }%
+    }%
+    \parbox[t][\headheight][t]{8cm}{%
+        \hspace*{0.6cm}
+        \raggedright{%
+            \footnotesize{%
+                Villigen PSI, \today\\
+                \vspace*{-.2cm}
+                \hspace*{0.6cm}
+                page \thepage/\pageref{LastPage}
+            }%
+        }%
+    }%
+}%
+
+% Clear all footers
 \firstfoot{}
 \nextfoot{}
+\endinput
