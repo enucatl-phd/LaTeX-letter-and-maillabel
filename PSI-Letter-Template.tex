@@ -1,20 +1,28 @@
 \documentclass[psi]{scrlttr2}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[english]{babel}
-\usepackage{graphicx}
+\usepackage[english]{babel} 
+\usepackage{lipsum}
+
+\setkomavar{department}{SYN}
+\setkomavar{person}{David Haberthür}
+\setkomavar{fromemail}{david.haberthuer@psi.ch}
+\setkomavar{fromphone}{+41\,56\,310\,31\,80}
+\setkomavar{room}{WBBA/218}
+\setkomavar{fromname}{David Haberthür\newline TOMCAT Industry contact responsible}
+
 \begin{document}
-%\setkomavar{date}{29. Februar 2011}
-\setkomavar{subject}{Subject}
-\begin{letter}{Someone\\
-	Somewhere\\
-	1234 In A City\\
-	In A Country}
-\opening{Dear Someone}
-Here's a letter for you.
-\closing{Yours sincerely}
-\ps{PS: Post-Scriptum}
-\encl{Enclosed 1\\Enclosed 2 }
-\cc{First Copy\\Second Copy}
+
+\begin{letter}{Max Muster\\
+	Somewhere 123\\
+	1234 Somecity\\
+	Somecountry}
+
+\setkomavar{subject}{\rmfamily{Subject heading}}
+
+\opening{Dear\ldots}
+
+\lipsum[1-5]
+
+\closing{Yours sincerely\newline\newline Paul Scherrer Institut}
+
 \end{letter}
 \end{document}
