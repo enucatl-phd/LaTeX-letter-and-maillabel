@@ -1,20 +1,21 @@
 \ProvidesFile{psilabel.lco}[2011/21/2 lco (Matteo Abis)]
 \LoadLetterOption{SN}
-\KOMAoptions{paper=a4,%
-	foldmarks=false,%
-	fromlogo,%
-	addrfield=true}
+\KOMAoptions{%
+    paper=a4,
+    foldmarks=false,
+    fromlogo,
+    addrfield=true}
 \setkomavar{backaddress}{Matteo Abis\\
-	Paul Scherrer Institut\\
-	WBBA/213\\
-	CH-5232 Villigen}
+    Paul Scherrer Institut\\
+    WBBA/213\\
+    CH-5232 Villigen}
 \newcommand{\size}{1.5cm}
 \setkomavar{fromlogo}{%
-	\includegraphics[height=\size]{logo-tomcat}
-	%\hspace{\size}
-	\hspace{3mm}
-	\hspace{\size}
-	\includegraphics[height=\size]{logo-psi}}
+    \includegraphics[height=\size]{logo-tomcat}
+    \hspace{\size}
+    \hspace{3mm}
+    \hspace{\size}
+    \includegraphics[height=\size]{logo-psi}}
 \@setplength{toaddrhpos}{72.0mm}
 \@setplength{toaddrvpos}{42.4mm}
 \@setplength{toaddrwidth}{68.0mm}
