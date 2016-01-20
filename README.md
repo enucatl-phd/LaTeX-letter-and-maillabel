@@ -9,4 +9,4 @@
 * Edit your details in `psilabel.lco`
 * Write an address label with `PSI-AddressLabel-Template.tex`
 * compile `latexmk -pdf PSI-...`
-* print and glue to the parcel and put it in the `Post Ausgang` area in the hallway.
+* print and glue to the parcel and put it in the *Post Ausgang* area in the hallway.
